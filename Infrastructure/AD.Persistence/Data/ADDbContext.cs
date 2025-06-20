@@ -1,10 +1,11 @@
-﻿using AD.Domain.Entities;
+﻿using AD.Application.Interfaces;
+using AD.Domain.Entities;
 using AD.Persistence.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace AD.Persistence.Data;
 
-public class ADDbContext(DbContextOptions<ADDbContext> options) : DbContext(options)
+public class ADDbContext(DbContextOptions<ADDbContext> options) : DbContext(options), IADDbContext
 {
     public DbSet<Account> Accounts { get; set; }
     public DbSet<UserProfile> UserProfiles { get; set; }

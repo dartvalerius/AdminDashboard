@@ -23,7 +23,7 @@ public class UserProfile
     /// <summary>
     /// Учётная запись
     /// </summary>
-    public Account? Account { get; set; }
+    public required Account Account { get; set; }
 
     /// <summary>
     /// Список платежей
