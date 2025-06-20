@@ -11,7 +11,7 @@ public class Rate
     public Guid Id { get; set; }
 
     /// <summary>
-    /// Дата установки куса
+    /// Дата установки курса
     /// </summary>
     public DateTime DateSet { get; set; }
 
