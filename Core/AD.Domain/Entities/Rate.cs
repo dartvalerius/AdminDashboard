@@ -23,5 +23,5 @@ public class Rate
     /// <summary>
     /// Список платежей
     /// </summary>
-    public ICollection<Payment> Payments { get; set; } = new List<Payment>();
+    public ICollection<Payment>? Payments { get; set; }
 }

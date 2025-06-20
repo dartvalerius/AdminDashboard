@@ -44,7 +44,7 @@ public class UserProfileConfiguration : IEntityTypeConfiguration<UserProfile>
 
         builder
             .Property(x => x.Balance)
-            .HasColumnName("NAME")
+            .HasColumnName("BALANCE")
             .HasMaxLength(100)
             .IsRequired();
     }

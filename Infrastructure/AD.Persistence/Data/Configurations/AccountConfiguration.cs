@@ -45,7 +45,7 @@ internal class AccountConfiguration : IEntityTypeConfiguration<Account>
 
         builder
             .Property(x => x.Salt)
-            .HasColumnName("PASSWORD_HASH")
+            .HasColumnName("SALT")
             .HasMaxLength(128)
             .IsFixedLength()
             .IsRequired();

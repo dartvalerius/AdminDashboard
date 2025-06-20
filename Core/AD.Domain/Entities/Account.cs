@@ -33,5 +33,5 @@ public class Account
     /// <summary>
     /// Профиль пользователя
     /// </summary>
-    public required UserProfile UserProfile { get; set; }
+    public UserProfile? UserProfile { get; set; }
 }

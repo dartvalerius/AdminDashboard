@@ -33,10 +33,10 @@ public class Payment
     /// <summary>
     /// Профиль пользователя
     /// </summary>
-    public required UserProfile UserProfile { get; set; }
+    public UserProfile? UserProfile { get; set; }
 
     /// <summary>
     /// Курс
     /// </summary>
-    public required Rate Rate { get; set; }
+    public Rate? Rate { get; set; }
 }

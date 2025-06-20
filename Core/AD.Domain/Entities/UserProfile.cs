@@ -23,10 +23,10 @@ public class UserProfile
     /// <summary>
     /// Учётная запись
     /// </summary>
-    public required Account Account { get; set; }
+    public Account? Account { get; set; }
 
     /// <summary>
     /// Список платежей
     /// </summary>
-    public ICollection<Payment> Payments { get; set; } = new List<Payment>();
+    public ICollection<Payment>? Payments { get; set; }
 }
