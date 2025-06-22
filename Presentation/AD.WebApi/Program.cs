@@ -2,6 +2,7 @@ using AD.Application;
 using AD.Persistence;
 using AD.Persistence.Data;
 using AD.WebApi.ApiEndpoints;
+using AD.WebApi.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,8 +30,11 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+app.UseMiddleware<CustomExceptionHandlerMiddleware>();
+
 app.MapRateEndpoints();
 app.MapPaymentEndpoints();
 app.MapClientEndpoints();
+app.MapAccountEndpoints();
 
 app.Run();
