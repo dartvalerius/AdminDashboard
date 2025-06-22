@@ -30,5 +30,6 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapRateEndpoints();
+app.MapPaymentEndpoints();
 
 app.Run();

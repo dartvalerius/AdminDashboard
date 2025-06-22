@@ -7,10 +7,15 @@ namespace AD.Application.Services;
 
 public class PaymentService(IADDbContext dbContext) : IPaymentService
 {
-    public async Task<IList<PaymentVm>> ListAsync(int takeLast = 0, CancellationToken cancellationToken = default)
+    public async Task<IList<PaymentVm>> ListAsync(int take = 0, CancellationToken cancellationToken = default)
     {
-        var payments = await dbContext.Payments.TakeLast(takeLast).Include(x => x.Rate).Include(x => x.UserProfile)
-            .Include(x => x.UserProfile.Account).ToListAsync(cancellationToken: cancellationToken);
+        var payments = await dbContext.Payments
+            .OrderByDescending(x => x.DateTime)
+            .Take(take)
+            .Include(x => x.Rate)
+            .Include(x => x.UserProfile)
+            .Include(x => x.UserProfile.Account)
+            .ToListAsync(cancellationToken: cancellationToken);
 
         return payments.Select(payment => new PaymentVm
             {
