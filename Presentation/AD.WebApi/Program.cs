@@ -3,12 +3,24 @@ using AD.Persistence;
 using AD.Persistence.Data;
 using AD.WebApi.ApiEndpoints;
 using AD.WebApi.Middleware;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+const string corsPolicyName = "AllowAll";
+
 builder.Services.AddApplication();
 builder.Services.AddPersistence(builder.Configuration);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(corsPolicyName,
+        corsPolicy => corsPolicy
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
 
 var app = builder.Build();
 
@@ -31,6 +43,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseMiddleware<CustomExceptionHandlerMiddleware>();
+
+app.UseCors(corsPolicyName);
 
 app.MapRateEndpoints();
 app.MapPaymentEndpoints();

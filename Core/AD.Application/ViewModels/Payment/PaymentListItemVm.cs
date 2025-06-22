@@ -1,9 +1,9 @@
 ﻿namespace AD.Application.ViewModels.Payment;
 
 /// <summary>
-/// Модель отображения платежа
+/// Модель отображения элемента списка платежей
 /// </summary>
-public class PaymentVm
+public class PaymentListItemVm
 {
     /// <summary>
     /// Идентификатор

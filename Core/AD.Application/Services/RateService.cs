@@ -11,7 +11,7 @@ public class RateService(IADDbContext dbContext) : IRateService
 {
     public async Task<RateVm> GetCurrentAsync(CancellationToken cancellationToken = default)
     {
-        var lastRate = await dbContext.Rates.OrderByDescending(x => x.DateSet).LastOrDefaultAsync(cancellationToken);
+        var lastRate = await dbContext.Rates.OrderBy(x => x.DateSet).LastOrDefaultAsync(cancellationToken);
 
         if (lastRate is null) throw new Exception("Нет данных о курсах");
 

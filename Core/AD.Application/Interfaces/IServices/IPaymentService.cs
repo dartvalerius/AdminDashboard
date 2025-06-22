@@ -13,5 +13,5 @@ public interface IPaymentService
     /// <param name="take">Количество получаемых последних платежей</param>
     /// <param name="cancellationToken">Токен отмены</param>
     /// <returns>Список моделей отображения последних платежей</returns>
-    Task<IList<PaymentVm>> ListAsync(int take = 0, CancellationToken cancellationToken = default);
+    Task<PaymentListVm> ListAsync(int take = 0, CancellationToken cancellationToken = default);
 }

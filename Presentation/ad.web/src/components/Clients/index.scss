@@ -1,0 +1,86 @@
+.table-caption {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.table-container {
+  overflow-x: auto;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 600px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+.styled-table thead tr {
+  background-color: #4a6fa5;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.styled-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.styled-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f5f7fa;
+  transform: translateX(4px);
+}
+
+.styled-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Анимация появления строк */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.styled-table tbody tr {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.styled-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.styled-table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.styled-table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.styled-table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.styled-table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .styled-table {
+    min-width: 100%;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 15px;
+  }
+}

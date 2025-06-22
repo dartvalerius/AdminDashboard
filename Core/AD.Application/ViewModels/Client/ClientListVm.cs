@@ -11,7 +11,7 @@ public class ClientListVm
     public IList<ClientListItemVm> Clients { get; set; } = [];
 
     /// <summary>
-    /// Количество клиентов в ответе
+    /// Общее количество клиентов
     /// </summary>
     public int Count { get; set; }
 }
