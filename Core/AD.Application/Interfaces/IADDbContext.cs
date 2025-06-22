@@ -1,5 +1,4 @@
 ﻿using AD.Domain.Entities;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace AD.Application.Interfaces;

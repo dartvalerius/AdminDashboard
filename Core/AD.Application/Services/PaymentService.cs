@@ -1,7 +1,6 @@
-﻿using System.Collections.Concurrent;
-using AD.Application.Interfaces;
+﻿using AD.Application.Interfaces;
 using AD.Application.Interfaces.IServices;
-using AD.Domain.ViewModels;
+using AD.Application.ViewModels.Payment;
 using Microsoft.EntityFrameworkCore;
 
 namespace AD.Application.Services;
@@ -15,6 +14,7 @@ public class PaymentService(IADDbContext dbContext) : IPaymentService
 
         return payments.Select(payment => new PaymentVm
             {
+                Id = payment.Id.ToString("N"),
                 DateTime = payment.DateTime.ToString("dd.MM.yyyy"),
                 Amount = payment.Amount.ToString("##.###"),
                 Rate = payment.Rate.CurrentRate.ToString("##.###"),

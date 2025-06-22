@@ -1,10 +1,15 @@
-﻿namespace AD.Domain.ViewModels;
+﻿namespace AD.Application.ViewModels.Payment;
 
 /// <summary>
 /// Модель отображения платежа
 /// </summary>
 public class PaymentVm
 {
+    /// <summary>
+    /// Идентификатор
+    /// </summary>
+    public string Id { get; set; } = string.Empty;
+
     /// <summary>
     /// Дата платежа
     /// </summary>

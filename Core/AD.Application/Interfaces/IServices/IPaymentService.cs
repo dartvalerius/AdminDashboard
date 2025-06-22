@@ -1,4 +1,4 @@
-﻿using AD.Domain.ViewModels;
+﻿using AD.Application.ViewModels.Payment;
 
 namespace AD.Application.Interfaces.IServices;
 

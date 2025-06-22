@@ -16,11 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\IServices\" />
+    <ProjectReference Include="..\AD.Domain\AD.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AD.Domain\AD.Domain.csproj" />
+    <Folder Include="DTO\ClientDTO\" />
+    <Folder Include="DTO\AccountDTO\" />
   </ItemGroup>
 
 </Project>
