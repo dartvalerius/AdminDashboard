@@ -3,6 +3,7 @@ using AD.Application.Interfaces;
 using AD.Application.Interfaces.IServices;
 using AD.Application.ViewModels.Rate;
 using AD.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace AD.Application.Services;
 
@@ -10,11 +11,13 @@ public class RateService(IADDbContext dbContext) : IRateService
 {
     public async Task<RateVm> GetCurrentAsync(CancellationToken cancellationToken = default)
     {
-        var lastRate = await Task.Run(() => dbContext.Rates.MaxBy(x => x.DateSet), cancellationToken);
+        var lastRate = await dbContext.Rates.OrderByDescending(x => x.DateSet).LastOrDefaultAsync(cancellationToken);
+
+        if (lastRate is null) throw new Exception("Нет данных о курсах");
 
         return new RateVm
         {
-            Id = lastRate!.Id.ToString("N"),
+            Id = lastRate.Id.ToString("N"),
             DateSet = lastRate.DateSet.ToString("dd.MM.yyyy"),
             CurrentRate = lastRate.CurrentRate.ToString("##.###")
         };

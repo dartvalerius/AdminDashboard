@@ -1,6 +1,7 @@
 using AD.Application;
 using AD.Persistence;
 using AD.Persistence.Data;
+using AD.WebApi.ApiEndpoints;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +29,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.MapGet("/", () => "Hello World!");
+app.MapRateEndpoints();
 
 app.Run();
